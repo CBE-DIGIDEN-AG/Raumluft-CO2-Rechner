@@ -1,0 +1,354 @@
+
+.m-list {
+  margin-bottom: 24px;
+}
+
+.m-list__create {
+  @include sprite('icon-add');
+  @extend %body;
+
+  background-color: transparent;
+  background-size: 24px auto;
+  background-position: left center;
+  padding-left: 30px;
+  color: $blue;
+  cursor: pointer;
+
+}
+
+
+.m-list__contextmenu {
+  position: absolute;
+  border: solid 1px $dark-blue;
+  background-color: $white;
+  padding: 10px 14px;
+  display: none;
+  z-index: 10;
+
+  li {
+    @extend %label;
+
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  li + li {
+    margin-top: 8px;
+  }
+}
+
+.m-list__item {
+  padding: 14px 6px 13px 12px;
+  border-radius: 4px;
+  border: solid 1px $light-grey-blue;
+  background-color: $grey;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  &[draggable="true"] {
+    cursor: row-resize;
+    position: relative;
+
+    &:before {
+      @include sprite('icon-drag');
+
+      content: "";
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      left: -32px;
+      top: calc(50% - 12px);
+    }
+  }
+
+  .name {
+    @extend %bodybold;
+
+    width: calc(100% - 120px);
+  }
+
+  .edit {
+    @extend %label;
+
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .context {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    > span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    &:hover {
+      .m-list__contextmenu {
+        display: block;
+      }
+    }
+  }
+}
+
+.m-list__item + .m-list__item {
+  margin-top: 12px;
+}
+
+.m-list__itemusageprofile {
+  &:after {
+    content: "";
+    position: absolute;
+    right: 95px;
+    top:0;
+    bottom:0;
+    width: 1px;
+    height: 100%;
+    background-color: $light-grey-blue;
+  }
+
+  &.hint {
+    * {
+      opacity: 0.4;
+    }
+
+    &:after {
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      content: "";
+      width: 100%;
+      background-color: transparent;
+    }
+  }
+
+  &.active {
+    //outline: 4px solid rgba($text-grey, 0.5);
+
+    &:after {
+      border-bottom: 10px solid $text-grey;
+      margin-top:12px;
+    }
+  }
+}
+
+.m-list__confirm {
+  position: absolute;
+  background-color: rgba($white, 0.9);
+  top: 0;
+  bottom:0;
+  left:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.m-list__confirminner {
+  position: absolute;
+  background-color: $white;
+  top: 10%;
+  z-index: 101;
+  border: solid 4px $blue;
+  padding: 21px 24px;
+  width: 520px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+
+  strong {
+    @extend %h5;
+
+    margin-bottom: 21px;
+    display: block;
+  }
+
+  span.desc {
+    @extend %caption;
+
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  .m-form__element {
+    padding-right: 40px;
+  }
+
+  .m-form__helpicon {
+    bottom: 8px;
+    top:auto;
+  }
+
+  .m-form__helpinner {
+    min-width: 20vw;
+  }
+}
+
+.m-list__confirmactions {
+  display: flex;
+  justify-content: space-between;
+
+  a[data-type="create"] {
+    @extend %h5;
+
+    color: $blue;
+  }
+
+  a[data-type="forward"] {
+    @extend %h5;
+
+    color: $blue;
+  }
+
+  a[data-type="back"] {
+    @extend %h5;
+
+    color: $blue;
+  }
+
+  a[data-type="back"] + a[data-type="forward"] {
+    margin-left: 20px;
+  }
+
+  a[data-type="delete"] {
+    @include sprite('icon-delete', (color: $blue));
+    @extend %h5;
+
+    background-color: transparent;
+    background-size: 24px auto;
+    background-position: left center;
+    padding-left: 30px;
+    color: $blue;
+  }
+
+  a[data-type="cancel"] {
+    @extend %h5;
+
+    color: $blue;
+  }
+
+  a[data-type="set"] {
+    @extend %h5;
+
+    color: $white;
+    background-color: $blue;
+    padding: 5px 10px 5px 30px;;
+    position: absolute;
+    bottom: -38px;
+    right: -4px;
+
+    &:after {
+      @include sprite('icon-unsaved', (color: $white));
+
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      background-color: $blue;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 80%;
+    }
+  }
+}
+
+.m-list__confirmerrors {
+  @extend %caption;
+
+  margin-bottom: 10px;
+
+  > strong {
+    color: $tomato;
+    margin-bottom: 10px;
+  }
+
+  > div {
+    color: $tomato;
+    list-style-type: disc;
+    display: list-item;
+    margin-left: 12px;
+  }
+}
+
+.m-list__confirmstep {
+  display: none;
+
+  &[data-is-show="true"] {
+    display: block;
+  }
+}
+
+.m-list__confirmcloser {
+  @include sprite('icon-close', (color: $black));
+  background-size: 28px auto;
+
+  position: absolute;
+  right: 15px;
+  top:15px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+.m-list__confirmactions[data-type="bnb"] {
+  justify-content: flex-end;
+}
+
+.m-list__bnbsetprofile {
+  margin-top: 16px;
+
+  span {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  a {
+    @extend %h5;
+
+    color: $white;
+    background-color: $blue;
+    padding: 4px 10px 5px 30px;
+    position: relative;
+    margin-top: 6px;
+    display: inline-block;
+
+    &:after {
+      @include sprite('icon-unsaved', (color: $white));
+
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      background-color: $blue;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 80%;
+    }
+  }
+}
+
+[data-name="bnbprofile_id"] {
+  margin-bottom: 20px;
+}

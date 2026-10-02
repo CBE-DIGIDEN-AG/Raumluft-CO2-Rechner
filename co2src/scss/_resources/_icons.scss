@@ -1,0 +1,186 @@
+$sprites: (
+    'ic-chevron-right': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'%3e%3cdefs%3e%3cpath id='a' d='m9.705 5.705-1.41 1.41 4.58 4.59-4.58 4.59 1.41 1.41 6-6z'/%3e%3c/defs%3e%3cg transform='rotate(-90 12.5 12.205)' fill='none' fill-rule='evenodd'%3e%3cmask id='b' fill='white'%3e%3cuse xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='%23a'/%3e%3c/mask%3e%3cg mask='url(%23b)' fill='___color___'%3e%3cpath d='M-13.295-13.295h50v50h-50z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+    'ic-info': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cg transform='translate(2 2)' fill='none' fill-rule='evenodd'%3e%3ccircle fill='%230055AF' cx='10' cy='10' r='10'/%3e%3ctext font-family='OpenSans-Bold%2c Open Sans' font-size='16' font-weight='bold' fill='white'%3e %3ctspan x='6' y='17'%3e%3f%3c/tspan%3e %3c/text%3e%3c/g%3e%3c/svg%3e",
+    'icon-add': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cdefs%3e%3cpath id='a' d='M14 8H8v6H6V8H0V6h6V0h2v6h6z'/%3e%3c/defs%3e%3cg transform='translate(5 5)' fill='none' fill-rule='evenodd'%3e%3cmask id='b' fill='white'%3e%3cuse xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='%23a'/%3e%3c/mask%3e%3cg mask='url(%23b)' fill='%230055AF'%3e%3cpath d='M-18-18h50v50h-50z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+    'icon-arrow': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z' fill='___color___' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-checkmark': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M10.649 17 6 12.247l1.43-1.461 3.219 3.292L17.57 7 19 8.461z' fill='___color___'/%3e%3c/svg%3e",
+    'icon-checkmarkfull': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm5.57 5-6.921 7.078-3.22-3.292L6 12.246 10.649 17 19 8.461 17.57 7z' fill='___color___' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-chevron': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cdefs%3e%3cpath id='a' d='M1.41 0 0 1.41 4.58 6 0 10.59 1.41 12l6-6z'/%3e%3c/defs%3e%3cg transform='rotate(90 4.705 13.295)' fill='none' fill-rule='evenodd'%3e%3cmask id='b' fill='white'%3e%3cuse xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='%23a'/%3e%3c/mask%3e%3cg mask='url(%23b)' fill='___color___'%3e%3cpath d='M-21.59-19h50v50h-50z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+    'icon-close': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' fill='___color___' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-delete': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z' fill='___color___' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-drag': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cdefs%3e%3cpath d='M0 10h18V8H0v2zm0 4h18v-2H0v2zm0-8h18V4H0v2zm0-6v2h18V0H0z' id='a'/%3e%3c/defs%3e%3cg transform='translate(3 5)' fill='none' fill-rule='evenodd'%3e%3cmask id='b' fill='white'%3e%3cuse xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='%23a'/%3e%3c/mask%3e%3cg mask='url(%23b)' fill='%230055AF'%3e%3cpath d='M-16-18h50v50h-50z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+    'icon-easyspeech': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 24'%3e%3cpath d='M13.06 9.28a13.64 13.64 0 0 1 2.34-1.21 14.48 14.48 0 0 1 5.34-1H21v12.06h-.24a14.17 14.17 0 0 0-2.76.27 15 15 0 0 0-2.58.77 15.27 15.27 0 0 0-2.34 1.22A13.92 13.92 0 0 0 11 23a14.85 14.85 0 0 0-2.07-1.63 14 14 0 0 0-2.36-1.24A14.39 14.39 0 0 0 4 19.36a14.17 14.17 0 0 0-2.78-.27H1V7h.2a14.17 14.17 0 0 1 2.8.26A14.3 14.3 0 0 1 6.59 8a12.81 12.81 0 0 1 2.35 1.27A15.54 15.54 0 0 1 11 10.9a14.69 14.69 0 0 1 2.06-1.62Zm-.77-1.93a3.22 3.22 0 0 1-2.58 0 3.5 3.5 0 0 1-1.05-.72 3.23 3.23 0 0 1-.73-1 3.06 3.06 0 0 1-.27-1.28v-.08A3 3 0 0 1 7.93 3a3.12 3.12 0 0 1 .73-1 3.22 3.22 0 0 1 1-.72A3.15 3.15 0 0 1 11 1a3.11 3.11 0 0 1 1.29.27 3.5 3.5 0 0 1 1.05.73 3.12 3.12 0 0 1 .73 1 3 3 0 0 1 .27 1.26v.06a3.06 3.06 0 0 1-.27 1.28 3.23 3.23 0 0 1-.73 1 3.5 3.5 0 0 1-1.05.75Z' fill='___color___'/%3e%3c/svg%3e",
+    'icon-hands': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cg%3e%3cpath d='m3.7 10.33 6.09-4A1.61 1.61 0 0 1 11 6a1.07 1.07 0 0 1 .75.68.7.7 0 0 1-.13.81 6.45 6.45 0 0 1-.9.78l-3.19 2.4a.51.51 0 0 0-.16.66 1.15 1.15 0 0 0 .89.44l9.88 1.39a.79.79 0 0 1 .58.25.82.82 0 0 1 .28.59.78.78 0 0 1-.24.57.79.79 0 0 1-.58.25l-6.58-.54c-.29 0-.44.1-.45.29s.13.33.45.42l6.8 1.69a.76.76 0 0 1 .61 1c-.09.49-.47.67-1.13.52l-6.47-1.24c-.38-.07-.59 0-.66.28s.07.45.4.58l5.36 2a.89.89 0 0 1 .29.26.65.65 0 0 1 .12.39.67.67 0 0 1-.22.51.7.7 0 0 1-.51.22h-.28l-5.62-1.73c-.37-.12-.61-.07-.71.15s0 .4.32.58l3.69 1.84a.58.58 0 0 1 .25.74c-.1.35-.44.41-1 .18q-8.53-3.09-10-4.29a5.43 5.43 0 0 1-1.33-1.76A5.06 5.06 0 0 1 1 14.58a4.53 4.53 0 0 1 .09-.91 6.87 6.87 0 0 1 .21-.87 11.61 11.61 0 0 1 1.08-1.33 8.64 8.64 0 0 1 1.3-1.12Zm2.4-8.24a54.54 54.54 0 0 0-.85 5.6l3-2-.32-3.92C7.83 1.21 7.53 1 7 1s-.8.41-.92 1.08Zm6.11 3 5.86-3.79a.87.87 0 0 1 1.31.25 1 1 0 0 1-.3 1.38l-4.7 3.86a.38.38 0 0 0 0 .61.42.42 0 0 0 .64 0l6.14-4.08a.87.87 0 0 1 1.37.34 1.07 1.07 0 0 1-.43 1.53L15.86 9.3a.37.37 0 0 0-.11.52c.12.2.35.21.69 0l5.34-2.53a.44.44 0 0 1 .22-.05h.2a.78.78 0 0 1 .59.25A.75.75 0 0 1 23 8a.79.79 0 0 1-.16.5.9.9 0 0 1-.4.3c-1.77 1-3.43 1.84-5 2.66L11 10.74c-.73-.12-.86-.35-.41-.71s.93-.69 1.36-1 .83-.72 1.22-1.1a1.19 1.19 0 0 0 .3-.45 1.42 1.42 0 0 0 .11-.55 1.46 1.46 0 0 0-.1-.52 2.46 2.46 0 0 0-.25-.45 2 2 0 0 0-1.02-.87Z' fill='___color___'/%3e%3c/g%3e%3c/svg%3e",
+    'icon-left-arrow': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z' fill='___color___' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-unchecked': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18zm0 1.5a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z' fill='___color___' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-unsaved': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg transform='translate(-443 -1529)'%3e%3cg transform='translate(100 1428)'%3e%3cg transform='translate(340 98)'%3e%3cg%3e%3cpath d='M0 0h24v24H0z'/%3e%3cpath d='M19 13v5c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-5c0-.55-.45-1-1-1s-1 .45-1 1v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6c0-.55-.45-1-1-1s-1 .45-1 1Zm-6-.33 1.88-1.88a.996.996 0 1 1 1.41 1.41l-3.59 3.59a.996.996 0 0 1-1.41 0L7.7 12.2a.996.996 0 1 1 1.41-1.41L11 12.67V4c0-.55.45-1 1-1s1 .45 1 1v8.67Z' fill='___color___'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+    'icon-upload-cloud': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3e%3cpath d='M32.25 16.733C31.117 10.983 26.067 6.667 20 6.667c-4.817 0-9 2.733-11.083 6.733A9.99 9.99 0 0 0 0 23.333c0 5.517 4.483 10 10 10h21.667C36.267 33.333 40 29.6 40 25c0-4.4-3.417-7.967-7.75-8.267zm-8.917 4.934v6.666h-6.666v-6.666h-5L20 13.333l8.333 8.334h-5z' fill='%230055AF' fill-rule='evenodd'/%3e%3c/svg%3e",
+    'icon-upload': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cdefs%3e%3cpath d='M4 13h6V7h4L7 0 0 7h4v6zm-4 2h14v2H0v-2z' id='a'/%3e%3c/defs%3e%3cg transform='translate(5 3)' fill='none' fill-rule='evenodd'%3e%3cmask id='b' fill='white'%3e%3cuse xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='%23a'/%3e%3c/mask%3e%3cg mask='url(%23b)' fill='%230055AF'%3e%3cpath d='M-18-16h50v50h-50z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
+);
+
+$sizes: (
+    'ic-chevron-right': (
+        'width': 25px,
+        'height': 25px
+    ),
+    'ic-info': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-add': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-arrow': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-checkmark': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-checkmarkfull': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-chevron': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-close': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-delete': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-drag': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-easyspeech': (
+        'width': 22px,
+        'height': 24px
+    ),
+    'icon-hands': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-left-arrow': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-unchecked': (
+        'width': 24px,
+        'height': 24px
+    ),
+    'icon-unsaved': (
+        'width': 18px,
+        'height': 18px
+    ),
+    'icon-upload-cloud': (
+        'width': 40px,
+        'height': 40px
+    ),
+    'icon-upload': (
+        'width': 24px,
+        'height': 24px
+    )
+);
+
+$color: (
+    'ic-chevron-right': (
+        'color': '#000'
+    ),
+    'icon-arrow': (
+        'color': '#0055AF'
+    ),
+    'icon-checkmark': (
+        'color': '#ffffff'
+    ),
+    'icon-checkmarkfull': (
+        'color': '#4F871A'
+    ),
+    'icon-chevron': (
+        'color': '#000'
+    ),
+    'icon-close': (
+        'color': '#000'
+    ),
+    'icon-delete': (
+        'color': '#0055AF'
+    ),
+    'icon-easyspeech': (
+        'color': '#5A5A5A'
+    ),
+    'icon-hands': (
+        'color': '#5A5A5A'
+    ),
+    'icon-left-arrow': (
+        'color': '#0055AF'
+    ),
+    'icon-unchecked': (
+        'color': '#036'
+    ),
+    'icon-unsaved': (
+        'color': '#1D1D1D'
+    )
+);
+
+// https://github.com/waldemarfm/sass-svg-uri/blob/v1.0.0/_svg-uri.scss
+@function sprite-str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if type-of($replace) == 'null' {
+        $replace: '';
+    }
+
+    @if ( $index ) {
+        @return str-slice($string, 1, $index - 1) + $replace + sprite-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function sprite-svg-uri($value) {
+    $output: $value;
+
+    $output: sprite-str-replace($output, '"', "'");
+    $output: sprite-str-replace($output, '<', '%3C');
+    $output: sprite-str-replace($output, '>', '%3E');
+    $output: sprite-str-replace($output, '&', '%26');
+    $output: sprite-str-replace($output, '#', '%23');
+
+    @return $output;
+}
+
+@mixin sprite($name, $user-variables: (), $include-size: false) {
+    $sprite: map-get($sprites, $name);
+
+    // Inject variables
+    $default-variables: map-get($color, $name);
+    @if type-of($default-variables) == 'map' {
+        @each $key, $value in map-merge($default-variables, $user-variables) {
+            @if ( not map-has-key($default-variables, $key) ) {
+                @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+            }
+
+            $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote(#{$value})));
+        }
+    } @else if type-of($user-variables) == 'map' {
+        @warn 'Sprite \'#{$name}\' does not contain any variables';
+    }
+
+    background: url($sprite) center no-repeat;
+
+    @if $include-size {
+        $size: map-get($sizes, $name);
+        @if $include-size == true {
+            background-size: map-get($size, width) map-get($size, height);
+        } @else if $include-size == 'box' {
+            width: map-get($size, width);
+            height: map-get($size, height);
+        }
+    }
+}

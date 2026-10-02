@@ -1,0 +1,69 @@
+//colors
+//$black: #000000;
+//$white: #ffffff;
+$gruen: #4f871a;
+$tomato: #ea3131;
+$light-grey-blue: #aebac6;
+$blue: #0055af;
+$dark-blue: #036;
+$light-periwinkle: #d6dadf;
+$shadow: rgba(214, 218, 223, 0.61);
+$very-light-blue: #e9ebed;
+$button-hover: #007cff;
+$text-grey: #5a5a5a;
+$grey: #f8f8f8;
+$dark-grass-green-70: rgba(62, 130, 8, 0.7);
+$color-light-blue: #76a4d4;
+$pistachio-70: rgba(183, 240, 137, 0.7);
+$faded-orange-70: rgba(247, 136, 67, 0.7);
+$light-grey-2: #f2f5f7;
+$light-grey: #e5ebf0;
+
+$gutters: [];
+
+//sizes
+$page_width: 1600px;
+$global_content_width: 665px;
+
+$mobile_width: 87%;
+$mobile_diff: 6.5%;
+
+$smalldesktop_width: 90%;
+$tablet_width: 90%;
+$tablet_diff: 5%;
+
+$header_height: 115px;
+$header_height_mobile: 78px;
+
+//responsive stuff
+
+$isRetina: "(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5)";
+
+//typo
+$basefontfamiliy: 'OpenSans', sans-serif;
+$headerfontfamiliy: 'Merriweather', sans-serif;
+
+$isactive: 'is-active';
+$ishover: 'is-hover';
+$isfocus: 'is-focus';
+$isopend: 'is-opened';
+$isclosed: 'is-closed';
+$hasvalue: 'has-value';
+
+$rte_image_width: 240;
+
+//margin and paddings
+$grid_inner_vert: 20;
+$grid_inner_hor: 16;
+
+$base_font: 14;
+
+$transition-speed-long: 400ms;
+$transition-speed-middle: 250ms;
+$transition-speed-short: 100ms;
+$transition-speed-sticky-nav: 200ms;
+
+$slider_base_height: 566px;
+$slider_base_height_tablet: 311px;
+
+$mobile-inner-padding: 20px;

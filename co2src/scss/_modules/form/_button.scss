@@ -1,0 +1,53 @@
+.m-form__button {
+  &:last-child {
+    margin-left: auto;
+  }
+
+  a,
+  input,
+  button {
+    @extend %body;
+
+    background-color: $blue;
+    color: $white;
+    padding: 15px 90px;
+    border:0;
+    box-shadow: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+  }
+
+  input[name="page.projectresume"] {
+   @include sprite('icon-upload');
+
+    background-color: transparent;
+    background-size: 24px auto;
+    background-position: left center;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: $blue;
+  }
+
+  input[name="project.create"] {
+    @include sprite('icon-add');
+
+    background-color: transparent;
+    background-size: 24px auto;
+    background-position: left center;
+    padding-left: 30px;
+    color: $blue;
+  }
+
+  input[value="zurück"] {
+    @include sprite('icon-left-arrow');
+
+    background-color: transparent;
+    background-size: 24px auto;
+    background-position: left center;
+    padding-left: 30px;
+    color: $blue;
+  }
+}

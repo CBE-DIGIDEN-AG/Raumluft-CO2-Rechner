@@ -1,0 +1,84 @@
+@import "content";
+
+%backlink {
+  @extend %body;
+  //@include sprite('back', (color: $black));
+
+  color: $black;
+  padding-left: 25px;
+  background-position:left center;
+}
+
+%link--more {
+  @extend %link;
+
+  display: inline-block;
+  position: relative;
+  border-bottom: 1px solid $black;
+  padding-bottom: 2px;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
+}
+
+%link--back {
+  @extend %link;
+  //@include sprite('back', (color: $black));
+
+  display: inline-block;
+  position: relative;
+  border-bottom: 1px solid $orange;
+  padding-bottom: 2px;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
+}
+
+%link--download {
+  @extend %link--more;
+  //@include sprite('icon-save');
+
+  padding-left: 24px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 18px 18px;
+}
+
+%link--arrow {
+  @extend %link--more;
+ // @include sprite("icon-arrow-east");
+
+  padding-right: 24px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 18px 18px;
+}
+
+%figcaption--teaser {
+  @extend %caption;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: $white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px;
+}
+
+%small-separation {
+  margin-bottom: 20px;
+
+  @include md {
+    margin-bottom: 24px;
+  }
+}
+
+%big-separation {
+  margin-bottom: 40px;
+
+  @include md {
+    margin-bottom: 60px;
+  }
+}

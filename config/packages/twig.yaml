@@ -1,0 +1,10 @@
+twig:
+    file_name_pattern: '*.twig'
+    globals:
+        # Unset (null) disables the Matomo snippet, see templates/_matomo.html.twig.
+        matomo_url: '%env(default::MATOMO_URL)%'
+        matomo_site_id: '%env(default::MATOMO_SITE_ID)%'
+
+when@test:
+    twig:
+        strict_variables: true

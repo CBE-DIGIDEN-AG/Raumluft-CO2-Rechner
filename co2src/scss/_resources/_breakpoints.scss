@@ -1,0 +1,35 @@
+$bp-tablet: '(max-width: 1200px)';
+$bp-tablet-only: '(min-width: 767px) and (max-width: 1200px)';
+$bp-mobile: '(max-width: 767px)';
+$bp-smalldesktop: '(min-width: 1248px) and (max-width: 1350px)';
+$bp-desktop: '(min-width: 1024px)';
+
+@mixin sm {
+  @include media-breakpoint-up(sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include media-breakpoint-up(md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include media-breakpoint-up(lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include media-breakpoint-up(xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @include media-breakpoint-up(xxl) {
+    @content;
+  }
+}

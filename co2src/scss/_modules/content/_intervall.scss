@@ -1,0 +1,71 @@
+.m-intervalllist__before {
+  @extend %label;
+
+  margin-top: 30px;
+  margin-bottom: 37px;
+}
+
+.m-intervalllist__co2concentration {
+  margin-bottom: 2px;
+}
+
+.m-intervalllist__subtitle {
+  margin-bottom: 37px;
+  margin-top: 72px;
+
+  > div {
+    position: relative;
+    display: inline;
+  }
+
+  .m-form__helpicon {
+    top: -2px;
+  }
+}
+
+.m-intervalllist__after {
+  margin-top: 36px;
+}
+
+.m-intervalllist__item {
+  flex-basis: 100%;
+  display: flex;
+  margin-top: 12px;
+
+  li {
+    @extend %caption;
+
+    background-color: $white;
+    width: auto;
+    padding: 2px 6px;
+    border: solid 1px $light-periwinkle;
+  }
+
+  li + li {
+    margin-left: 16px;
+  }
+}
+
+.m-intervalllist__addwindowtype {
+  @include sprite('icon-arrow', (color: $blue));
+  @extend %h5;
+
+  cursor: pointer;
+  color: $blue;
+  background-position: left center;
+  background-size: 30px auto;
+  padding-left: 30px;
+}
+
+.m-intervalllist__removewindowtype {
+  @include sprite('icon-delete', (color: $blue));
+
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-size: 24px auto;
+  position: absolute;
+  right: 0;
+  top:0;
+  cursor: pointer;
+}

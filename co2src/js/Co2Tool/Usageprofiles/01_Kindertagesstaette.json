@@ -1,0 +1,114 @@
+{
+  "id" : "childcare",
+  "name": "A - Räume in Kindertagesstätten",
+  "description": "Ruhe- und Spielräume",
+  "no_editable": false,
+  "no_in_percent": true,
+  "persons_editable": false,
+  "persons_in_percent": true,
+  "emissionrate_editable": true,
+  "show_teacher": true,
+  "show_students": false,
+  "show_prestudents": true,
+  "helptext_emissionrate_teacher": "Atemluftemission (19,9 l/h)",
+  "helptext_emissionrate_students": "",
+  "helptext_emissionrate_prestudents": "Atemluftemission (6,4 l/h)",
+  "data": {
+    "start": "07:30",
+    "intervals": {
+      "0": {
+        "name": "Ankunft der Kinder",
+        "duration": "85",
+        "count_teacher": "50",
+        "count_students": "0",
+        "count_prestudents": "50",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "6,40",
+        "oz_editable": false,
+        "oz": ""
+      },
+      "1": {
+        "name": "Lüftungspause (5 min)",
+        "duration": "5",
+        "count_teacher": "100",
+        "count_students": "0",
+        "count_prestudents": "100",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "6,40",
+        "oz_editable": true,
+        "oz": "free"
+      },
+      "2": {
+        "base": "0",
+        "name": "Morgenkreis",
+        "duration": "60"
+      },
+      "3": {
+        "base": "1"
+      },
+      "4": {
+        "base": "0",
+        "name": "Spielen",
+        "duration": "85"
+      },
+      "5": {
+        "base": "1",
+        "name": "Lüften zu Beginn der Mittagspause (5 min)",
+        "duration": "5"
+      },
+      "6": {
+        "base": "0",
+        "name": "Mittagessen (25 min ohne Lüften)",
+        "duration": "55"
+      },
+      "7": {
+        "base": "1"
+      },
+      "8": {
+        "base": "0",
+        "name": "Mittagsruhe/Spielen",
+        "duration": "55"
+      },
+      "9": {
+        "base": "1",
+        "count_teacher": "80",
+        "count_prestudents": "80"
+      },
+      "10": {
+        "base": "0",
+        "name": "Spielen, Snacks",
+        "duration": "85",
+        "count_teacher": "80",
+        "count_prestudents": "80"
+      },
+      "11": {
+        "base": "1",
+        "name": "Lüftungspause (10 min)",
+        "duration": "10",
+        "count_teacher": "50",
+        "count_prestudents": "50"
+      },
+      "12": {
+        "base": "0",
+        "name": "Spielen, Snacks",
+        "duration": "45",
+        "count_teacher": "50",
+        "count_prestudents": "50"
+      },
+      "13": {
+        "base": "1",
+        "count_teacher": "30",
+        "count_prestudents": "30"
+      },
+      "14": {
+        "base": "0",
+        "name": "Spielen, Snacks",
+        "duration": "60",
+        "count_teacher": "30",
+        "count_prestudents": "30"
+      }
+    }
+  }
+}

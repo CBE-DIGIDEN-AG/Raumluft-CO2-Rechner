@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="icon-info">
+    <g transform="translate(2 2)" fill="none" fill-rule="evenodd">
+        <circle fill="#0055AF" cx="10" cy="10" r="10"/>
+        <text font-family="OpenSans-Bold, Open Sans" font-size="16" font-weight="bold" fill="#FFF">
+                            <tspan x="6" y="17">?</tspan>
+                        </text>
+    </g>
+</svg>

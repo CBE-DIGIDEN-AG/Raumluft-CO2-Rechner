@@ -1,0 +1,111 @@
+{
+  "id" : "hoersaele",
+  "name": "D - Unterrichtsräume Hochschulen / Universitäten",
+  "description": "<strong>Hörsäle / Seminarräume</strong> (vorwiegend sitzende Tätigkeiten)<br><strong>Werk- / Laborräume</strong> (leichte körperliche Aktivität)<br><strong>Musik- / Gesangsübungsräume</strong> (mittlere körperliche Aktivität)<br>in Hochschulen und Universitäten ",
+  "no_editable": false,
+  "no_in_percent": true,
+  "persons_editable": false,
+  "persons_in_percent": true,
+  "emissionrate_editable": true,
+  "show_teacher": true,
+  "show_students": false,
+  "show_prestudents": false,
+  "helptext_emissionrate_teacher": "<table><tr><td><strong>Hörsäle / Seminarräume</strong><br>(vorwiegend sitzende Tätigkeiten)</td><td>19,9 l/h</td></tr><tr><td><strong>Werk- / Laborräume</strong><br>(leichte körperliche Tätigkeiten)</td><td>26,5 l/h</td></tr><tr><td><strong>Musik- / Gesangsübungsräume</strong><br>(mittlere körperliche Tätigkeiten)</td><td>29,8 l/h</td></tr></table>",
+  "helptext_emissionrate_students": "",
+  "helptext_emissionrate_prestudents": "",
+  "data": {
+    "start": "08:00",
+    "intervals": {
+      "0": {
+        "name": "1. Stunde",
+        "duration": "60",
+        "count_teacher": "100",
+        "count_students": "100",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz": ""
+      },
+      "1": {
+        "name": "Lüftungspause (5 min)",
+        "duration": "5",
+        "count_teacher": "100",
+        "count_students": "100",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz": "free"
+      },
+      "2": {
+        "base": "0",
+        "name": "2. Stunde"
+      },
+      "3": {
+        "base": "1"
+      },
+      "4": {
+        "base": "0",
+        "name": "3. Stunde",
+        "duration": "55"
+      },
+      "5": {
+        "base": "1"
+      },
+      "6": {
+        "base": "0",
+        "name": "4. Stunde",
+        "duration": "55"
+      },
+      "7": {
+        "base": "1"
+      },
+      "8": {
+        "base": "0",
+        "name": "5. Stunde",
+        "duration": "55"
+      },
+      "9": {
+        "base": "1"
+      },
+      "10": {
+        "base": "0",
+        "name": "6. Stunde",
+        "duration": "55"
+      },
+      "11": {
+        "base": "1"
+      },
+      "12": {
+        "base": "0",
+        "name": "7. Stunde",
+        "duration": "55"
+      },
+      "13": {
+        "base": "1"
+      },
+      "14": {
+        "base": "0",
+        "name": "8. Stunde",
+        "duration": "55"
+      },
+      "15": {
+        "base": "1"
+      },
+      "16": {
+        "base": "0",
+        "name": "9. Stunde",
+        "duration": "55"
+      },
+      "17": {
+        "base": "1"
+      },
+      "18": {
+        "base": "0",
+        "name": "10. Stunde",
+        "duration": "55"
+      }
+    }
+  }
+}

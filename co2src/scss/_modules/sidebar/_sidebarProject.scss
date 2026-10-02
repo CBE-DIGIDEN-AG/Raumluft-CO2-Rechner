@@ -1,0 +1,43 @@
+.sidebarProjectFooterMenu {
+  position: relative;
+  bottom: 0;
+  left:0;
+  right:0;
+  width: 100%;
+  border-top: 1px solid $light-grey;
+  display: flex;
+  padding-top: 19px;
+  flex-wrap: wrap;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -200%;
+    width: 3000px;
+    height: 2px;
+    background-color: $light-grey;
+    top: -1px;
+    bottom:0;
+    z-index: -1;
+  }
+
+  li {
+    a {
+      @extend %captionsmall;
+
+      text-transform: uppercase;
+      padding: 5px 10px;
+      display: block;
+      color: $black;
+
+      &:hover {
+        background-color: $light-grey;
+      }
+    }
+
+    &[data-is-active="true"] {
+      background-color: $light-grey;
+    }
+  }
+}

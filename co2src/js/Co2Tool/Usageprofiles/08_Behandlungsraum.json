@@ -1,0 +1,155 @@
+{
+  "id" : "behandlungsraum",
+  "name": "F - medizinische Untersuchungs-/ Behandlungs- und Therapieräume",
+  "description": "<strong>medizinische Untersuchungsräume</strong> (vorwiegend sitzende Tätigkeiten)<br><strong>medizinische Versorgungs- und Behandlungsräume</strong> (leichte körperliche Aktivität)<br><strong>Räume für Physiotherapie und Reha</strong> (hohe körperliche Aktivität)",
+  "no_editable": false,
+  "no_in_percent": true,
+  "persons_editable": false,
+  "persons_in_percent": true,
+  "emissionrate_editable": true,
+  "show_teacher": true,
+  "show_students": false,
+  "show_prestudents": false,
+  "helptext_emissionrate_teacher": "<table><tr><td><strong>medizinische Untersuchungsräume</strong><br>(vorwiegend sitzende Tätigkeiten)</td><td>19,9 l/h</td></tr><tr><td><strong>medizinische Versorgungs- und Behandlungsräume</strong><br>(leichte körperliche Tätigkeiten)</td><td>26,5 l/h</td></tr><tr><td><strong>Räume für Physiotherapie und Reha</strong><br>(mittlere körperliche Tätigkeiten)</td><td>41,4 l/h</td></tr></table>",
+  "helptext_emissionrate_students": "",
+  "helptext_emissionrate_prestudents": "",
+  "data": {
+    "start": "09:00",
+    "intervals": {
+      "0": {
+        "name": "1.Patient",
+        "duration": "25",
+        "count_teacher": "100",
+        "count_students": "0",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz_editable": false,
+        "oz": ""
+      },
+      "1": {
+        "name": "Lüftungspause",
+        "duration": "5",
+        "count_teacher": "0",
+        "count_students": "0",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "0",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz_editable": true,
+        "oz": "free"
+      },
+      "2": {
+        "base": "0",
+        "name": "2. Patient"
+      },
+      "3": {
+        "base": "1"
+      },
+      "4": {
+        "base": "0",
+        "name": "3. Patient"
+      },
+      "5": {
+        "base": "1"
+      },
+      "6": {
+        "base": "0",
+        "name": "4. Patient"
+      },
+      "7": {
+        "base": "1"
+      },
+      "8": {
+        "base": "0",
+        "name": "5. Patient"
+      },
+      "9": {
+        "base": "1"
+      },
+      "10": {
+        "base": "0",
+        "name": "6. Patient"
+      },
+      "11": {
+        "base": "1"
+      },
+      "12": {
+        "base": "0",
+        "name": "7. Patient"
+      },
+      "13": {
+        "base": "1"
+      },
+      "14": {
+        "base": "1",
+        "name": "Mittagspause",
+        "duration": "55"
+      },
+      "15": {
+        "base": "1"
+      },
+      "16": {
+        "base": "0",
+        "name": "8. Patient"
+      },
+      "17": {
+        "base": "1"
+      },
+      "18": {
+        "base": "0",
+        "name": "9. Patient"
+      },
+      "19": {
+        "base": "1"
+      },
+      "20": {
+        "base": "0",
+        "name": "10. Patient"
+      },
+      "21": {
+        "base": "1"
+      },
+      "22": {
+        "base": "0",
+        "name": "11. Patient"
+      },
+      "23": {
+        "base": "1"
+      },
+      "24": {
+        "base": "0",
+        "name": "12. Patient"
+      },
+      "25": {
+        "base": "1"
+      },
+      "26": {
+        "base": "0",
+        "name": "13. Patient"
+      },
+      "27": {
+        "base": "1"
+      },
+      "28": {
+        "base": "0",
+        "name": "14. Patient"
+      },
+      "29": {
+        "base": "1"
+      },
+      "30": {
+        "base": "0",
+        "name": "15. Patient"
+      },
+      "31": {
+        "base": "1"
+      },
+      "32": {
+        "base": "0",
+        "name": "16. Patient"
+      }
+    }
+  }
+}

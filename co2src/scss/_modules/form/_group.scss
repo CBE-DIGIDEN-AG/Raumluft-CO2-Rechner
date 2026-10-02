@@ -1,0 +1,20 @@
+.m-form__group {
+  &.hasError {
+    &[data-label="windowcount"] + .m-form__subgroupelements {
+      .m-form__select[data-name$="windowcount"] {
+        label {
+          color: $tomato;
+        }
+
+        select {
+          border-color: $tomato;
+          color: $tomato;
+        }
+      }
+
+      [data-name$="windowcount"] {
+        color: $tomato;
+      }
+    }
+  }
+}

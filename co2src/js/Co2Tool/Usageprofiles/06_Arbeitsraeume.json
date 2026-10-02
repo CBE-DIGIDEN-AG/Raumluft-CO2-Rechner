@@ -1,0 +1,123 @@
+{
+  "id" : "arbeitsraeume",
+  "name": "E - Arbeitsräume",
+  "description": "<strong>Büro-, Seminar- und Besprechungsräume</strong> (vorwiegend sitzende Tätigkeiten)<br><strong>Laborräume, Werkräume, Archive, Verkaufsräume etc.</strong> (leichte körperliche Aktivität)<br><strong>Werk-/ Produktionsstätten, Sonderarbeitsräume, etc.</strong> (mittlere körperliche Aktivität)",
+  "no_editable": false,
+  "no_in_percent": true,
+  "persons_editable": false,
+  "persons_in_percent": true,
+  "emissionrate_editable": true,
+  "show_teacher": true,
+  "show_students": false,
+  "show_prestudents": false,
+  "helptext_emissionrate_teacher": "<table><tr><td><strong>Büro-, Seminar- und Besprechungsräume</strong><br>(vorwiegend sitzende Tätigkeiten)</td><td>19,9 l/h</td></tr><tr><td><strong>Laborräume, Werkstätten, Archive, Verkaufsräume etc.</strong><br>(leichte körperliche Tätigkeiten)</td><td>26,5 l/h</td></tr><tr><td><strong>Werk-/ Produktionsstätten, Sonderarbeitsräume, etc</strong><br>(mittlere körperliche Tätigkeiten)</td><td>33,1 l/h</td></tr></table>",
+  "helptext_emissionrate_students": "",
+  "helptext_emissionrate_prestudents": "",
+  "data": {
+    "start": "09:00",
+    "intervals": {
+      "0": {
+        "name": "1. Arbeitszeit",
+        "duration": "60",
+        "count_teacher": "100",
+        "count_students": "0",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz_editable": false,
+        "oz": "",
+        "no": "0"
+      },
+      "1": {
+        "name": "Lüftungspause (5 min)",
+        "duration": "5",
+        "count_teacher": "100",
+        "count_students": "0",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "22",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz_editable": true,
+        "oz": "free"
+      },
+      "2": {
+        "base": "0",
+        "name": "2. Arbeitszeit",
+        "duration": "55"
+      },
+      "3": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "4": {
+        "base": "0",
+        "name": "3. Arbeitszeit",
+        "duration": "55"
+      },
+      "5": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "6": {
+        "base": "0",
+        "name": "Mittagspause ohne Lüften",
+        "duration": "55",
+        "count_teacher": "0",
+        "oz": ""
+      },
+      "7": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "8": {
+        "base": "0",
+        "name": "4. Arbeitszeit",
+        "duration": "55"
+      },
+      "9": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "10": {
+        "base": "0",
+        "name": "5. Arbeitszeit",
+        "duration": "55"
+      },
+      "11": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "12": {
+        "base": "0",
+        "name": "6. Arbeitszeit",
+        "duration": "55"
+      },
+      "13": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "14": {
+        "base": "0",
+        "name": "7. Arbeitszeit",
+        "duration": "55"
+      },
+      "15": {
+        "base": "1",
+        "name": "Lüftungspause (5 min)",
+        "duration": "5"
+      },
+      "16": {
+        "base": "0",
+        "name": "8. Arbeitszeit",
+        "duration": "55"
+      }
+    }
+  }
+}

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Kohlendioxid-Berechnungs- und Bewertungstool (BNB){% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+
+        <meta name="description" content="Co2 Tool">
+        <meta name="keywords" content="Co2 Tool">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="CBE">
+
+        <style>
+            @page { margin: 100px 25px; }
+            header { position: fixed; top: -60px; left: 0; right: 0; height: 60px;border-bottom: 2px solid #5a5a5a; }
+            footer { position: fixed; bottom: -60px; left: 0; right: 0; height: 50px; border-top: 2px solid #5a5a5a;padding-top: 10px;display: flex; justify-content: space-between; }
+
+            header strong { font-family: 'OpenSans', sans-serif; font-size: 22px; }
+
+            footer .pagenum:before { content: counter(page); }
+            footer {
+
+            }
+
+            footer .pagetotal:before { content: '|||'; }
+
+            main > div { page-break-after: always; }
+            .pagepage { page-break-after: always; }
+            main > div:last-child { page-break-after: avoid; }
+            body { font-family: 'OpenSans', sans-serif; font-size: 12px; }
+
+            h1 {font-size: 25px;line-height: 1.3;margin-bottom: 30px; }
+            h2 {font-size: 22px;line-height: 1.3;margin-bottom: 20px; }
+            h3 {font-size: 19px;line-height: 1.3;margin-bottom: 18px; }
+            h4 {font-size: 17px;line-height: 1.3;margin-bottom: 0; margin-top: 0; }
+
+            table { border: 1px solid #aebac6; }
+            table { width: 100% !important; border-spacing: 0;}
+            table thead tr th {font-size: 11px; text-transform: uppercase; background-color: #e5ebf0; padding: 6px 10px;text-align: center; border-right: 1px solid #aebac6;}
+            table tbody tr td { font-size: 12px; padding: 3px 10px; border-top: 1px solid #aebac6; border-right: 1px solid #aebac6; text-align: center; vertical-align: top; }
+            table tbody tr td[colspan] { background-color: white; }
+            table thead tr th:last-child { border-right: none;}
+            table tbody tr td:last-child { border-right: none; }
+            table thead tr + tr th { border-top: 1px solid #aebac6; }
+            table .text-align-left { text-align: left; }
+            table .text-align-right { text-align: right; }
+            table tbody tr td strong {font-weight: bold}
+            table tbody tr td.bnbcolor1 { background-color: rgba(183, 240, 137, 0.7); }
+            table tbody tr td.bnbcolor2 { background-color: rgba(247, 136, 67, 0.7); }
+
+            table table { border:0; }
+            table table tr th { background-color: #ffffff; border:0; font-size: 10px; padding: 3px 5px; }
+            table table tr td { background-color: #ffffff; border:0; font-size: 10px; padding: 3px 5px; border-top: 1px solid #eeeeee; }
+
+            table.bnb tbody tr td { background-color: transparent; }
+            table.bnb tbody tr td[colspan] { background-color: transparent; }
+            table.bnb tbody tr td.bnbhead { background-color: #e5ebf0; }
+            table.bnb tbody tr:first-child td { border-top:0; }
+
+            table.bnb tbody tr td.bnbcolor1 { background-color: rgba(183, 240, 137, 0.7); }
+            table.bnb tbody tr td.bnbcolor2 { background-color: rgba(247, 136, 67, 0.7); }
+
+            table td.no-wrap { white-space: nowrap; }
+
+            table.verticelflip { display: flex;flex-wrap: wrap; }
+            table.verticelflip thead { width: 15%; display: flex; flex-wrap: wrap; }
+            table.verticelflip tbody { width: 66%; display: flex; justify-content: space-between; }
+            table.verticelflip thead tr { display: flex; flex-direction: column; }
+            table.verticelflip tbody tr { display: flex; flex-direction: column; width: 50% }
+            table.verticelflip td { text-align: left; }
+            table.verticelflip th { text-align: left; border-top: 1px solid #aebac6; white-space: nowrap; }
+            table.verticelflip tbody tr td:first-child { border-top:0; }
+            table.verticelflip thead tr th:first-child { border-top:0; }
+
+            table.evenodd tbody tr:nth-child(2n) {background-color: #e5ebf0; }
+            .bg-white { background-color: #ffffff; }
+
+            table.blank tbody tr:first-child td { border-top:0; }
+
+            h4 + table { margin-top: 6px; }
+
+            .c50 { width: 48%; display: inline-block; }
+            .c50 strong { margin-bottom: 0; margin-top:6px; }
+            .c50 p { margin-top: 0; }
+            .right { text-align: right; }
+
+            .info {font-size: 13px;line-height: 1.3;margin-top: 2px;display:block; font-weight: normal; }
+        </style>
+    </head>
+    <body>
+        {% block body %}
+            <header>
+                <div class="c50">
+                    <strong>Raumluft-CO2-Rechner</strong>
+                    <p>Berechnung mit festen Randbedingungen gemäß BNB</p>
+                </div>
+                <div class="c50 right">
+                    <img src="{{ logo }}"  alt="Logo Bundesinstitut für Bau- Stadt- und Raumforschung" width="250" height="44" />
+                </div>
+            </header>
+            <footer>
+                <div class="c50">
+                    <strong>{{ projectdata.project.projektname }}</strong>
+                    - {{ projectdata.project.date }}
+                </div>
+                <div class="c50 right">
+                    Seite <span class="pagenum"> von </span><span class="pagetotal"></span>
+                </div>
+            </footer>
+            <main>
+                <div>
+                    <h1>Projektangaben</h1>
+                    <h4>{{ projectdata.project.projektname }}</h4>
+                    <table class="blank">
+                        <tbody>
+                            <tr>
+                                <td>Gebäudebezeichnung</td>
+                                <td class="bnbcolor1">{{ projectdata.project.building }}</td>
+                            </tr>
+                            <tr>
+                                <td>BNB Projektnummer und Bearbeiter/in</td>
+                                <td class="bnbcolor1">{{ projectdata.project.projectdescroption }}</td>
+                            </tr>
+                            <tr>
+                                <td>Datum</td>
+                                <td class="bnbcolor1">{{ projectdata.project.date }}</td>
+                            </tr>
+                            <tr>
+                                <td>Postleitzahl</td>
+                                <td class="bnbcolor1">{{ projectdata.project.zipcode }}</td>
+                            </tr>
+                            <tr>
+                                <td>Ort</td>
+                                <td class="bnbcolor1">{{ projectdata.project.city }}</td>
+                            </tr>
+                            <tr>
+                                <td>Berechnungsmethode</td>
+                                <td class="bnbcolor1">{{ selectvalues(formdata.project.method, projectdata.project.method) }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <br>
+
+                    <h4>Klimarandbedingungen</h4>
+                    <table class="blank">
+                        <tbody>
+                            <tr>
+                                <td>Außentemperatur in °C</td>
+                                <td class="bnbcolor1">{{ projectdata.dayprofile.t_e }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kohlendioxidkonzentration der Außenluft (in ppm)</td>
+                                <td class="bnbcolor1">{{ projectdata.dayprofile.cAUL }}</td>
+                            </tr>
+                            <tr>
+                                <td>Meteorologische Windgeschwindigkeit (in m/s)</td>
+                                <td class="bnbcolor1">{{ projectdata.dayprofile.v_meteo }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <br>
+
+                    <h4>Gebäudeangaben</h4>
+                    <table class="blank">
+                        <tbody>
+                            <tr>
+                                <td>Nettovolumen des Gebäudes (in m³)</td>
+                                <td class="bnbcolor1">{{ selectvalues(formdata.buildingdetails.VB, projectdata.buildingdetails.VB) }}</td>
+                            </tr>
+
+                            {% if projectdata.buildingdetails.VB < 1500 %}
+                                {% if projectdata.buildingdetails.LDH.base == 'messasure' %}
+                                    <tr>
+                                        <td>Luftwechsel bei 50 Pa Druckdifferenz - n50 (in 1/h)</td>
+                                        <td class="bnbcolor1">{{ projectdata.buildingdetails.n50 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if projectdata.buildingdetails.LDH.base == 'defaultvalue' %}
+                                    <tr>
+                                        <td>Luftwechsel bei 50 Pa Druckdifferenz - n50 (in 1/h)</td>
+                                        <td class="bnbcolor1">{{ selectvalues(formdata.buildingdetails.luftdichtheit, projectdata.buildingdetails.n50) }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if projectdata.buildingdetails.VB >= 1500 %}
+                                {% if projectdata.buildingdetails.LDH.base == 'messasure' %}
+                                    <tr>
+                                        <td>hüllflächenbezogene Luftdurchlässigkeit bei 50 Pa Druckdifferenz - q50 (in m³/(m²h))</td>
+                                        <td class="bnbcolor1">{{ projectdata.buildingdetails.q50 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if projectdata.buildingdetails.LDH.base == 'defaultvalue' %}
+                                    <tr>
+                                        <td>hüllflächenbezogene Luftdurchlässigkeit bei 50 Pa Druckdifferenz - q50 (in m³/(m²h))</td>
+                                        <td class="bnbcolor1">{{ selectvalues(formdata.buildingdetails.luftdichtheit, projectdata.buildingdetails.q50) }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endif %}
+
+                            <tr>
+                                <td>Sind Außenluftdurchlässe vorhanden?</td>
+                                <td class="bnbcolor1">{{ projectdata.buildingdetails.fATD }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Abschirmung</td>
+                                <td class="bnbcolor1">{{ selectvalues(formdata.buildingdetails.abschirmung, projectdata.buildingdetails.abschirmung) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <br>
+
+
+                    <br>
+                    <h2>Räume</h2>
+
+                    {% for room in projectdata.dayprofile.rooms %}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="text-align-left bnbcolor1"><h4>{{ room.name }}</h4></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>Raumnutzungstyp</td>
+                                <td class="bnbcolor1">{{ room.usetype }}</td>
+                            </tr>
+                            <tr>
+                                <td>Innentemperatur (in °C)</td>
+                                <td class="bnbcolor1">{{ room.t_in }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nutzfläche des Raumtyps (in m²)</td>
+                                <td class="bnbcolor1">{{ room.A }}</td>
+                            </tr>
+                            <tr>
+                                <td>Lichte Raumhöhe (in m)</td>
+                                <td class="bnbcolor1">{{ room.H }}</td>
+                            </tr>
+                            <tr>
+                                <td>Raumvolumen in m³</td>
+                                <td class="bnbcolor1">{{ (room.H|float * room.A|float)|number_format(2, ',', '.') }}</td>
+                            </tr>
+                            {% if projectdata.buildingdetails.VB >= 1500 %}
+                                <tr>
+                                    <td>Wärmeübertragende Umfassungsfläche des Raums in m²</td>
+                                    <td class="bnbcolor1">{{ room.Ae }}</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+
+                        <p>&nbsp;</p>
+                    {% endfor %}
+
+
+                    <br>
+                    <h2>Fenstertypen</h2>
+
+                    {% for window in projectdata.dayprofile.windowtypes %}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="text-align-left bnbcolor1"><h4>{{ window.name }}</h4></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>Fensterart</td>
+                                <td class="bnbcolor1">{{ selectvalues(formdata.windowtypes.type4108, window.win_Typ) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Lichte Öffnungsbreite des Fensters (in m)</td>
+                                <td class="bnbcolor1">{{ window.b_k }}</td>
+                            </tr>
+                            <tr>
+                                <td>Lichte Öffnungshöhe des Fensters (in m)</td>
+                                <td class="bnbcolor1">{{ window.h_k }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <p>&nbsp;</p>
+                    {% endfor %}
+
+
+
+                    {% for roomtype in projectarraydata.dayprofile.roomtypes %}
+                        {% if roomtype %}
+                        <div class="pagepage"></div>
+
+                            <table class="bnb">
+                                <tbody>
+                                <tr>
+                                    <td colspan="11" class="text-align-left bnbhead">
+                                        <h4>Variante: {{ roomtype.name }}
+                                            {% if projectdata.dayprofile.rooms[roomtype.key] %}
+                                                - {{ projectdata.dayprofile.rooms[roomtype.key].name }}
+                                            {% endif %}
+                                        </h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-align-left"><strong>Tagesprofil</strong></td>
+                                    <td colspan="9" class="text-align-left">{{ bnbprofile[roomtype.key].name }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" rowspan="4" class="text-align-left">
+                                        <strong>Personen im Raum</strong>
+                                    </td>
+                                    <td colspan="3" class="text-align-left bnbcolor1">
+                                        Anzahl der Personen
+                                    </td>
+                                    <td colspan="4" class="text-align-left bnbcolor1">
+                                        Altersklasse
+                                    </td>
+                                    <td colspan="2" class="text-align-left bnbcolor2">
+                                        Atemluftemission pro Person in l/h
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="bnbcolor1">
+                                        {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].count_teacher }}
+                                    </td>
+                                    <td colspan="4" class="text-align-left bnbcolor1">
+                                        Erwachsene / <br>
+                                        Altersstufe 13-18 Jahre
+                                    </td>
+                                    <td colspan="2" class="bnbcolor2">
+                                        {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].emissionrate_teacher }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="bnbcolor1">
+                                        {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].count_students }}
+                                    </td>
+                                    <td colspan="4" class="text-align-left bnbcolor1">
+                                        Altersstufe 6-12 Jahre
+                                    </td>
+                                    <td colspan="2" class="bnbcolor2">
+                                        {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].emissionrate_students }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="bnbcolor1">
+                                        {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].count_prestudents }}
+                                    </td>
+                                    <td colspan="4" class="text-align-left bnbcolor1">
+                                        Altersstufe 1-5 Jahre
+                                    </td>
+                                    <td colspan="2" class="bnbcolor2">
+                                        {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].emissionrate_prestudents }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-align-left">
+                                        <strong>Lüftungsart</strong>
+                                    </td>
+                                    <td colspan="9" class="text-align-left bnbcolor1">
+                                        <strong>{{ selectvalues(formdata.roomtypes.ventilation, roomtype.Anl) }}</strong>
+
+                                        {% if roomtype.Anl == 'mechanical' or roomtype.Anl == 'hybrid' %}
+                                            {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].q_v_mech %}
+                                                <span> - Luftvolumenstrom der Lüftungsanlage (in m³/h): {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[0].q_v_mech}} </span>
+                                            {% endif %}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-align-left">
+                                        Lüftungsprinzip
+                                    </td>
+                                    <td class="bnbcolor1">
+                                        {% if projectarraydata.dayprofile.relwindowroomtypes[roomtype.key].einseitig == 'ja' %}
+                                            <strong>X</strong>
+                                        {% endif %}
+                                    </td>
+                                    <td colspan="4">
+                                        Einseitige Lüftung
+                                    </td>
+                                    <td class="bnbcolor1">
+                                        {% if projectarraydata.dayprofile.relwindowroomtypes[roomtype.key].einseitig == 'nein' %}
+                                            <strong>X</strong>
+                                        {% endif %}
+                                    </td>
+                                    <td colspan="3" class="text-align-left">
+                                        Querlüftung
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-align-left">
+                                        Fensterangaben
+                                    </td>
+                                    <td colspan="2">
+                                        Anzahl
+                                    </td>
+                                    <td>
+                                        LB v <br>
+                                        in m
+                                    </td>
+                                    <td>
+                                        LH <br>
+                                        in m
+                                    </td>
+                                    <td>
+                                        <p>BH</p>
+                                        <p>in m</p>
+                                    </td>
+                                    <td colspan="2">
+                                        Anzahl geöffn. Fenster
+                                    </td>
+                                    <td>
+                                        Öffnungs- <br>zustand
+                                    </td>
+                                    <td>
+                                        Himmelsrichtung
+                                    </td>
+                                </tr>
+
+                                {% for windowgroup in roomtype.windowgroups %}
+                                    {% if windowgroup %}
+                                        <tr>
+                                            <td>
+                                                {{ windowgroup.name }}
+                                            </td>
+                                            <td>
+                                                {% for window in projectdata.dayprofile.windowtypes %}
+                                                    {% if window.key == windowgroup.windowtypes %}
+                                                        {{ window.name }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                            <td colspan="2" class="bnbcolor1">
+                                                {{ windowgroup.windowdata[0].windowcount }}
+                                            </td>
+                                            <td class="bnbcolor1">
+                                                {% for window in projectdata.dayprofile.windowtypes %}
+                                                    {% if window.key == windowgroup.windowtypes %}
+                                                        {{ window.b_k }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                            <td class="bnbcolor1">
+                                                {% for window in projectdata.dayprofile.windowtypes %}
+                                                    {% if window.key == windowgroup.windowtypes %}
+                                                        {{ window.h_k }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                            <td class="bnbcolor1">
+                                                {{ windowgroup.windowdata[0].h_Bruest_k }}
+                                            </td>
+                                            <td colspan="2" class="bnbcolor1">
+                                                {% set open = 0 %}
+                                                {% set varname_no = 'no_Fe' %}
+
+                                                {% if windowgroup.aw_k == '0' %}
+                                                    {% set varname_no = varname_no ~ '_S' %}
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '90' %}
+                                                    {% set varname_no = varname_no ~ '_W' %}
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '180' %}
+                                                    {% set varname_no = varname_no ~ '_N' %}
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '270' %}
+                                                    {% set varname_no = varname_no ~ '_O' %}
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.relwindowroomtypes[roomtype.key].einseitig == 'ja' %}
+                                                    {% set varname_no = 'no_Fe' %}
+                                                {% endif %}
+
+                                                {% set varname_no = varname_no ~'_k' %}
+
+                                                {% if  interval.windows.0.group[groupkey][varname_no] %}
+                                                    {% set open = interval.windows.0.group[groupkey][varname_no] %}
+                                                {% endif %}
+                                                
+                                                {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_no] }}
+                                            </td>
+                                            <td  class="bnbcolor1">
+                                                {% set varname_oz = 'oz_Fe' %}
+
+                                                {% if windowgroup.aw_k == '0' %}
+                                                    {% set varname_oz = varname_oz ~ '_S' %}
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '90' %}
+                                                    {% set varname_oz = varname_oz ~ '_W' %}
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '180' %}
+                                                    {% set varname_oz = varname_oz ~ '_N' %}
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '270' %}
+                                                    {% set varname_oz = varname_oz ~ '_O' %}
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.relwindowroomtypes[roomtype.key].einseitig == 'ja' %}
+                                                    {% set varname_oz = 'oz_Fe' %}
+                                                {% endif %}
+
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'komplett' %}
+                                                    komplett geöffnet
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'schiebopened' %}
+                                                    Schiebefenster geöffnet
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'kippopened' %}
+                                                    gekippt
+                                                    {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup].alpha_k }}°
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'drehopened' %}
+                                                    gedreht<br>
+                                                    {{ projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup].alpha_k }}°
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'schwingopened' %}
+                                                    Schwingflügel geöffnet
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'parallel' %}
+                                                    Parallelabstellung
+                                                {% endif %}
+
+                                                {% if projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals[1].windows[0].group[windowgroup.windowgroup][varname_oz] == 'lamellopened' %}
+                                                    Lamellenfenster geöffnet
+                                                {% endif %}
+                                            </td>
+                                            <td class="bnbcolor1">
+                                                {% if windowgroup.aw_k == '0' %}
+                                                    Süd
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '90' %}
+                                                    West
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '180' %}
+                                                    Nord
+                                                {% endif %}
+
+                                                {% if windowgroup.aw_k == '270' %}
+                                                    Ost
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                <tr>
+                                    <td colspan="2">
+                                        mittlere Höhe der Lüftungszone über Erdreichniveau (in m)
+                                    </td>
+                                    <td colspan="9">
+                                        {{ projectarraydata.dayprofile.relwindowroomtypes[roomtype.key].H_Grund_Zone }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+                        <p>&nbsp;</p>
+
+
+                            {% if roomtype and projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals|length > 0 %}
+                                <table class="evenodd">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2" class="text-align-left"><h4>Tagesprofil</h4></th>
+                                            <th colspan="4" class="text-align-left"><h4>{{ bnbprofile[roomtype.key].name }}</h4></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-align-left"></th>
+                                            <th>Zeitraum</th>
+                                            <th>Dauer</th>
+                                            <th>Nutzung</th>
+                                            <th>Belegung</th>
+                                            <th>Fensteröffnung</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {% set start = projectarraydata.dayprofile.usageprofiles[roomtype.key].start %}
+
+                                    {% for interval in projectarraydata.dayprofile.usageprofiles[roomtype.key].intervals %}
+                                        {% set end = intervaltime(start, interval.duration) %}
+                                        {% set profileitem = bnbmerge(bnbprofile[roomtype.key].data.intervals, bnbprofile[roomtype.key].data.intervals[interval.key]) %}
+
+                                        <tr>
+                                            <td>{{ interval.key + 1 }}</td>
+                                            <td class="no-wrap">{{ start }} - {{ end }}</td>
+                                            <td>{{ interval.duration }} min</td>
+                                            <td>{{ interval.name }}</td>
+                                            <td>
+                                                {{ profileitem.count_teacher }} %
+                                            </td>
+                                            <td>
+                                                {% if profileitem.oz == '' %}
+                                                    geschlossen
+                                                {% else %}
+                                                    offen
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+
+                                        {% set start = end %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endif %}
+
+                            <p>&nbsp;</p>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                    <div class="pagepage"></div>
+                    <h2>Maximale mittlere CO2-Konzentration innerhalb des Tagesprofils in ppm</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="text-align-left">Lüftungsvariante</th>
+                            <th>CO2-Konzentration Maximalwert</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cumulated %}
+                                <tr>
+                                    <td class="text-align-left">{{ item.name }} ({{ item.max_interval_name }})</td>
+                                    <td class="text-align-left">{{ item.max }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <p>&nbsp;</p>
+
+                    <div>
+                        <img src="{{ linechart }}" width="750"/>
+                    </div>
+                </div>
+            </main>
+        {% endblock %}
+    </body>
+</html>

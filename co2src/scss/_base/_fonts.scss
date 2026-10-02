@@ -1,0 +1,33 @@
+@font-face {
+  font-family: Merriweather;
+  src: local(Merriweather-Bold),
+  url(../fonts/Merriweather-Bold.woff2) format("woff2"),
+  url(../fonts/Merriweather-Bold.woff) format("woff"),
+  url(../fonts/Merriweather-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: OpenSans;
+  src: local(OpenSans-Regular),
+  url(../fonts/open-sans-v15-latin-regular.woff2) format("woff2"),
+  url(../fonts/open-sans-v15-latin-regular.woff) format("woff"),
+  url(../fonts/open-sans-v15-latin-regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: local(OpenSans-Semibold),
+  url(../fonts/open-sans-v15-latin-700.woff2) format("woff2"),
+  url(../fonts/open-sans-v15-latin-700.woff) format("woff"),
+  url(../fonts/open-sans-v15-latin-700.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}

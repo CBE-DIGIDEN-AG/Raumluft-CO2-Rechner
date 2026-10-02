@@ -1,0 +1,86 @@
+body {
+  overflow-x: hidden;
+}
+
+.l-header {
+  height: 136px;
+  padding: 24px 0;
+  position: relative;
+  z-index: 2;
+  border-bottom: 2px solid #f8f8f8;
+  background-color: #ffffff;
+}
+
+.l-header__inner {
+  display: flex;
+  justify-content: space-between;
+
+  h4 {
+    @extend %h4;
+
+    margin-bottom: 24px;
+  }
+}
+
+.l-main {
+  height: calc(100vh - 136px);
+
+  > .container {
+    height: 100%;
+
+    > .row {
+      min-height: calc(100vh - 86px - 48px - 20px);
+    }
+  }
+}
+
+.l-content {
+  @extend .col-12;
+  @extend .col-md-8;
+
+  [data-has-sidebar="false"] & {
+    @extend .offset-md-2;
+  }
+
+  background-color: $white;
+  padding: 24px 20px 24px 70px;
+  position: relative;
+  z-index: 2;
+
+  @include xxl() {
+    padding: 24px 70px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 3000px;
+    background-color: #ffffff;
+    top:0;
+    bottom:0;
+    z-index: -1;
+  }
+}
+
+.l-header__download.m-form__button {
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    display: inline-block;
+    padding: 10px 30px;
+  }
+
+  small {
+    @extend %table_small;
+
+    display: block;
+    margin-top: -5px;
+  }
+}
+
+.l-header__projectresume {
+  margin-right: 20px;
+}

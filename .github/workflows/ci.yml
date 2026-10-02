@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  php:
+    name: PHP
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: test
+      APP_SECRET: ci-only-not-a-secret
+      DATABASE_URL: mysql://root:root@127.0.0.1:3306/app?serverVersion=mariadb-10.11.0&charset=utf8mb4
+      MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: ctype, gd, iconv, intl, mbstring, pdo_mysql, xml, zip
+          tools: composer:v2
+          coverage: none
+      - name: Validate composer.json and lock file
+        run: composer validate --no-check-publish
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Audit dependencies
+        run: composer audit --locked
+      - name: Lint container
+        run: php bin/console lint:container
+      - name: Lint Twig
+        run: php bin/console lint:twig templates
+      - name: Lint YAML
+        run: php bin/console lint:yaml config translations
+
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run production
+      - name: Audit runtime dependencies
+        run: npm audit --omit=dev --audit-level=high

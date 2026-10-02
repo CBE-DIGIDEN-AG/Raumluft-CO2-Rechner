@@ -1,0 +1,62 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps"; // **Newly added!**
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api";
+@import "~bootstrap/scss/grid";
+
+$grid-gutter-width: 30px;
+$mobile_offset_outer: 30px;
+
+// Default Bootstrap gutter width variable.
+//$grid-gutter-width: map-get($grid-gutter-widths, md);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: $page_width + $grid-gutter-width
+);
+
+
+%row-justify-center {
+  .row {
+    //@extend .justify-content-center;
+  }
+}
+
+
+@mixin sm {
+  @include media-breakpoint-down(sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include media-breakpoint-down(md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include media-breakpoint-down(lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include media-breakpoint-down(xl) {
+    @content;
+  }
+}

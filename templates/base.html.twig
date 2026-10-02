@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}BBSR Webtool zur Berechnung und Bewertung der CO₂-Konzentrationen in der Innenraumluft{% endblock %}</title>
+
+        <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}">
+        <link rel="icon" type="image/png" href="{{ asset('favicon/favicon-96x96.png') }}" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon/favicon.svg') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}" />
+        <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
+
+        {% block stylesheets %}
+
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+
+        <meta name="description" content="Berechnen Sie CO₂-Konzentrationen in Innenräumen nach DIN/TS 4108-8 oder DIN EN 16798-7. Vergleichen Sie Fensterlüftung, hybride oder mechanische Konzepte – ideal auch für Bewertung gemäß des Bewertungssystem Nachhaltiges Bauen (BNB) mit vorkonfigurierten Klimadaten und Raumnutzungsprofilen.">
+        <meta name="keywords" content="Co2 Tool">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="CBE">
+
+        {% include '_matomo.html.twig' %}
+    </head>
+    <body>
+        {% block body %}
+            {% set manifest = manifest() %}
+
+            <div id="qcc" data-manifest="{{ manifest }}"></div>
+        {% endblock %}
+    </body>
+</html>

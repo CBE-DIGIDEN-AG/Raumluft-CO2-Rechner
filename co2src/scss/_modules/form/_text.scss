@@ -1,0 +1,25 @@
+.m-form__text {
+  @extend %basefield;
+
+  input {
+    @extend %body;
+
+    border: solid 2px $dark-blue;
+    padding: 2px 11px;
+    width: 100%;
+
+    &[readonly] {
+      color: $light-grey-blue;
+    }
+  }
+
+  &.hasError {
+    label {
+      color: $tomato;
+    }
+
+    input {
+      border-color: $tomato;
+    }
+  }
+}

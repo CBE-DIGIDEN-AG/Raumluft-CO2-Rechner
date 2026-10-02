@@ -1,0 +1,26 @@
+.m-form__time {
+  @extend %basefield;
+
+  input {
+    @extend %body;
+
+    border: solid 2px $dark-blue;
+    padding: 2px 11px;
+    width: 120px;
+    cursor: text;
+
+    &[readonly] {
+      border-color: $light-grey;
+    }
+  }
+
+  &.hasError {
+    label {
+      color: $tomato;
+    }
+
+    input {
+      border-color: $tomato;
+    }
+  }
+}

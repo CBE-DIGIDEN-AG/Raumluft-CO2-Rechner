@@ -1,0 +1,119 @@
+{
+  "id" : "classroom_secundar_vormittag_nachmittag_oberchule",
+  "name": "C - Unterrichtsräume Sekundarstufen",
+  "description": "<strong>Klassenzimmer</strong> (vorwiegend sitzende Tätigkeiten)<br><strong>Werk- / Seminarräume</strong> (körperliche Aktivität)<br>in Sekundarschulen I und II (Ganztagsunterricht)\n\n",
+  "no_editable": false,
+  "no_in_percent": true,
+  "persons_editable": false,
+  "persons_in_percent": true,
+  "emissionrate_editable": true,
+  "show_teacher": true,
+  "show_students": true,
+  "show_prestudents": false,
+  "helptext_emissionrate_teacher": "<table><tr><td><strong>Klassenzimmer</strong><br>(vorwiegend sitzende Tätigkeiten)</td><td>19,9 l/h</td></tr><tr><td><strong>Werk- oder Seminarräume</strong><br>(körperliche Tätigkeiten)</td><td>23,2 l/h</td></tr></table>",
+  "helptext_emissionrate_students": "<table><tr><td><strong>Klassenzimmer</strong><br>(vorwiegend sitzende Tätigkeiten)</td><td>19,9 l/h</td></tr><tr><td><strong>Werk- oder Seminarräume</strong><br>(körperliche Tätigkeiten)</td><td>19,9 l/h</td></tr></table>",
+  "helptext_emissionrate_prestudents": "",
+  "data": {
+    "start": "08:00",
+    "intervals": {
+      "0": {
+        "name": "1. Unterrichtsstunde",
+        "duration": "45",
+        "count_teacher": "100",
+        "count_students": "100",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz": ""
+      },
+      "1": {
+        "name": "Pause, Lüften (5 min)",
+        "duration": "5",
+        "count_teacher": "100",
+        "count_students": "100",
+        "count_prestudents": "0",
+        "emissionrate_teacher": "19,9",
+        "emissionrate_students": "0",
+        "emissionrate_prestudents": "0",
+        "oz": "free"
+      },
+      "2": {
+        "base": "0",
+        "name": "2. Unterrichtsstunde"
+      },
+      "3": {
+        "base": "1",
+        "name": "Hofpause, Lüften (15 min)",
+        "duration": "15",
+        "count_teacher": "50",
+        "count_students": "50",
+        "oz": "free"
+      },
+      "4": {
+        "base": "0",
+        "name": "3. Unterrichtsstunde"
+      },
+      "5": {
+        "base": "1",
+        "duration": "5"
+      },
+      "6": {
+        "base": "0",
+        "name": "4. Unterrichtsstunde"
+      },
+      "7": {
+        "base": "1",
+        "name": "Hofpause, Lüften (15 min)",
+        "duration": "15",
+        "count_teacher": "50",
+        "count_students": "50",
+        "oz": "free"
+      },
+      "8": {
+        "name": "5. Unterrichtsstunde",
+        "base": "0"
+      },
+      "9": {
+        "base": "1",
+        "duration": "5"
+      },
+      "10": {
+        "base": "0",
+        "name": "6. Unterrichtsstunde"
+      },
+      "11": {
+        "base": "1",
+        "duration": "5",
+        "count_teacher": "50",
+        "count_students": "50"
+      },
+      "12": {
+        "base": "0",
+        "name": "Mittagspause (35 Min. ohne Lüften)",
+        "duration": "35",
+        "count_teacher": "0",
+        "count_students": "0",
+        "oz": ""
+      },
+      "13": {
+        "base": "1",
+        "duration": "5",
+        "count_teacher": "50",
+        "count_students": "50"
+      },
+      "14": {
+        "base": "0",
+        "name": "7. Unterrichtsstunde"
+      },
+      "15": {
+        "base": "1",
+        "duration": "5"
+      },
+      "16": {
+        "base": "0",
+        "name": "8. Unterrichtsstunde"
+      }
+    }
+  }
+}

@@ -1,0 +1,184 @@
+@mixin effect($effect, $length) {
+	-webkit-animation: $effect $length;
+	-moz-animation: $effect $length;
+	-o-animation: $effect $length;
+	-ms-animation: $effect $length;
+	animation: $effect $length;
+}
+
+@mixin reset_effect() {
+	-webkit-animation: 0;
+	-moz-animation: 0;
+	-o-animation: 0;
+	-ms-animation: 0;
+	animation: 0;
+}
+
+@-webkit-keyframes fadeOutRight {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(80%, 0, 0);
+		transform: translate3d(80%, 0, 0);
+	}
+}
+
+@keyframes fadeOutRight {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(80%, 0, 0);
+		transform: translate3d(80%, 0, 0);
+	}
+}
+
+@-webkit-keyframes forward {
+	0% {
+
+	}
+
+	100% {
+
+		-webkit-transform: translate3d(30%, 0, 0);
+		transform: translate3d(30%, 0, 0);
+	}
+}
+
+@keyframes forward {
+	0% {
+
+	}
+
+	100% {
+		-webkit-transform: translate3d(30%, 0, 0);
+		transform: translate3d(30%, 0, 0);
+	}
+}
+
+@-webkit-keyframes rotate {
+	0% {
+
+	}
+
+	100% {
+
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes rotate {
+	0% {
+
+	}
+
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+@-webkit-keyframes fadeinout {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeinout {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+/// COMMENTED Due to having errors preventing the file to compile. (Not being used?)
+// @mixin pulse($n) {
+// 	0% {
+// 		transform: scaleX(1) scaleY(1);
+// 	}
+// 	@for $i from 1 through 9 {
+// 		$m: 1;
+// 		@if $i % 2 !=0 {
+// 			$m: $n;
+// 		}
+// 		#{$i*10%} {
+// 			transform: scaleX($m) scaleY($m)
+// 		}
+// 	}
+// 	100% {
+// 		transform: scaleX(1) scaleY(1);
+// 	}
+// }
+
+// @-webkit-keyframes rotate {
+// 	@include pulse(0.85);
+// }
+
+// @keyframes pulse {
+// 	@include pulse(0.85);
+// }
+
+@-webkit-keyframes slowpulse {
+	0% {
+		-webkit-transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.1);
+	}
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+@-moz-keyframes slowpulse {
+	0% {
+		-moz-transform: scale(1);
+	}
+	50% {
+		-moz-transform: scale(1.1);
+	}
+	100% {
+		-moz-transform: scale(1);
+	}
+}
+
+@-o-keyframes slowpulse {
+	0% {
+		-o-transform: scale(1);
+	}
+	50% {
+		-o-transform: scale(1.1);
+	}
+	100% {
+		-o-transform: scale(1);
+	}
+}
+
+@keyframes slowpulse {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

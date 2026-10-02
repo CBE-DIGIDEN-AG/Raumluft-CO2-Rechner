@@ -1,0 +1,47 @@
+@import "~simplebar/dist/simplebar.css";
+
+.simplebar-track.simplebar-horizontal {
+  background-color: $light-periwinkle;
+  height: 6px;
+
+  .simplebar-scrollbar {
+    height: 6px;
+    border-radius: 0;
+    top:auto;
+    bottom: 0;
+    z-index: 120;
+
+    &:before {
+      height: 17px;
+      border-radius: 0;
+      opacity: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $black;
+    }
+  }
+}
+
+.simplebar-track.simplebar-vertical {
+  background-color: $light-periwinkle;
+  width: 6px;
+
+  .simplebar-scrollbar {
+    width: 6px;
+    border-radius: 0;
+
+    &:before {
+      cursor: pointer;
+      width: 6px;
+      background-color: $black;
+      border-radius: 0;
+      opacity: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}

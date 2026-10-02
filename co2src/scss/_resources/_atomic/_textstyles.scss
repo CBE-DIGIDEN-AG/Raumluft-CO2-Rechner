@@ -1,0 +1,144 @@
+%h1 {
+  font-family: $headerfontfamiliy;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.46;
+  letter-spacing: -0.16px;
+}
+
+%h2 {
+  font-family: $headerfontfamiliy;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+%h3 {
+  font-family: $headerfontfamiliy;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.61;
+  letter-spacing: 0.2px;
+}
+
+%h4 {
+  font-family: $headerfontfamiliy;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.44px;
+}
+
+%h5 {
+  font-family: $headerfontfamiliy;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.75;
+  letter-spacing: normal;
+}
+
+%subline {
+  font-family: $basefontfamiliy;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.12px;
+}
+
+%link {
+  font-family: $basefontfamiliy;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+%body {
+  font-family: $basefontfamiliy;
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: normal;
+}
+
+%bodybold {
+  font-family: $basefontfamiliy;
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+%label {
+  font-family: $basefontfamiliy;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.79;
+  letter-spacing: 1.5px;
+}
+
+%caption {
+  font-family: $basefontfamiliy;
+  font-size: 14px;
+  line-height: 1.79;
+  font-weight: normal;
+}
+
+%captionbold {
+  font-family: $basefontfamiliy;
+  font-size: 14px;
+  line-height: 1.79;
+  font-weight: 600;
+}
+
+%captionsmall {
+  font-family: $basefontfamiliy;
+  font-size: 12px;
+  line-height: 1.79;
+  font-weight: normal;
+}
+
+%table_big {
+  font-family: $basefontfamiliy;
+  font-size: 12px;
+  line-height: 1.39;
+  font-weight: bold;
+}
+
+%table_regular {
+  font-family: $basefontfamiliy;
+  font-size: 12px;
+  line-height: 1.39;
+  font-weight: 100;
+}
+
+%table_small {
+  font-family: $basefontfamiliy;
+  font-size: 11px;
+  line-height: 1.39;
+  font-weight: normal;
+}
+
+%hyphenation {
+  -webkit-hyphens: auto;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-chars: 6 3 3;
+  -webkit-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-last: always;
+  -webkit-hyphenate-limit-zone: 8%;
+
+  -moz-hyphens: auto;
+  -moz-hyphenate-limit-chars: 6 3 3;
+  -moz-hyphenate-limit-lines: 2;
+  -moz-hyphenate-limit-last: always;
+  -moz-hyphenate-limit-zone: 8%;
+
+  -ms-hyphens: auto;
+  -ms-hyphenate-limit-chars: 6 3 3;
+  -ms-hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-last: always;
+  -ms-hyphenate-limit-zone: 8%;
+
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}

@@ -1,0 +1,196 @@
+%table--default {
+  table {
+    width: 100% !important;
+    border-spacing: 0;
+
+    thead {
+      td {
+        @extend %body;
+
+        padding: 5px 10px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
+    tbody tr {
+      td {
+        padding: 14px 10px;
+        width: auto !important;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+%content-formatter {
+  @extend %body;
+  @extend %table--default;
+  @include fullimage;
+
+  ul,
+  ol {
+    margin: 0 0 15px 0;
+    width: 100%;
+
+    ul,
+    ol {
+      margin-top: 15px;
+    }
+
+    & + p {
+      margin-top: 30px;
+    }
+
+    & + h3 {
+      margin-top: 36px;
+    }
+
+    & + h4 {
+      margin-top: 40px;
+    }
+  }
+
+  ol {
+    margin-left: 71px;
+    width: calc(100% - 71px);
+  }
+
+  h2 {
+    @extend %h2;
+
+    & + p {
+      margin-top: 12px;
+
+    }
+
+    & + ul,
+    & + ol {
+      margin-top: 30px;
+    }
+  }
+
+  h3 {
+    @extend %h3;
+
+    & + p,
+    & + ul,
+    & + ol,
+    & + h4 {
+      margin-top: 18px;
+    }
+  }
+
+  h4 {
+    // @extend %h4;
+
+    & + p {
+      margin-top: 17px;
+    }
+
+    & + ul,
+    & + ol {
+      margin-top: 16px;
+    }
+
+    & + h4 {
+      margin-top: 10px;
+    }
+  }
+
+  h5 {
+    // @extend %h5;
+
+    & + p {
+      margin-top: 8px;
+    }
+
+    & + ul,
+    & + ol {
+      margin-top: 30px;
+    }
+  }
+
+  h6 {
+    // @extend %h6;
+
+    & + p {
+      margin-top: 4px;
+    }
+
+    & + ul,
+    & + ol {
+      margin-top: 30px;
+    }
+  }
+
+  h2 + h3 {
+    margin-top: 25px;
+  }
+
+  p {
+    & + p {
+      margin-top: 27px;
+    }
+
+    & + ul {
+      margin-top: 21px;
+    }
+
+    & + ol {
+      margin-top: 21px;
+    }
+
+    & + h2 {
+      margin-top: 34px;
+    }
+
+    & + h3 {
+      margin-top: 50px;
+    }
+
+    & + h4 {
+      margin-top: 32px;
+    }
+
+    & + h5 {
+      margin-top: 30px;
+    }
+
+    & + h6 {
+      margin-top: 30px;
+    }
+  }
+
+  a {
+    padding-left: 2px;
+    padding-right: 3px;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+}
+
+%content-formatter--medium {
+  @extend %content-formatter;
+}

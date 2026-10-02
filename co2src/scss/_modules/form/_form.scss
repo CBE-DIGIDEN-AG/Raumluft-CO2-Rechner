@@ -1,0 +1,264 @@
+%basefield {
+  margin-bottom: 12px;
+  position: relative;
+
+  label {
+    @extend %label;
+
+    margin-bottom: 6px;
+
+    > span.label {
+      display: block;
+    }
+
+    > span.unit {
+      display: inline-block;
+    }
+
+    &[data-is-required="true"] {
+      > span.label {
+        &:after {
+          display: inline-block;
+          content: "*";
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+
+  &[data-has-help="true"] {
+
+  }
+}
+
+.m-form__helpicon {
+  @include sprite('ic-info');
+
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 28px;
+  right: 0;
+  left: calc(100% + 5px);
+  cursor: pointer;
+}
+
+.m-form__helpinner {
+  @extend %body;
+
+  padding: 25px 34px 23px 33px;
+  box-shadow: 2px 2px 6px 0 rgba(214, 218, 223, 0.61);
+  background-color: $grey;
+  color: $text-grey;
+  position: absolute;
+  top: 20px;
+  //right: -100%;
+  right: 10px;
+  left: 10px;
+  //left: calc(100% + 50px);
+  display: none;
+  z-index: 30;
+  max-height: 50vh;
+  overflow: auto;
+  min-width: 40vw;
+
+  h3 {
+    color: $black;
+    margin-bottom: 24px;
+  }
+
+  &[aria-expanded="true"] {
+    display: block;
+  }
+}
+
+.m-form__helpinnertext {
+  @extend %body;
+
+  strong {
+    @extend %bodybold;
+
+    margin-bottom: 0;
+    display: inline;
+  }
+
+  table {
+    padding: 0;
+    margin:0;
+
+    tr {
+      padding: 0;
+      margin:0;
+    }
+
+    th, td {
+      text-align: center;
+
+      > p {
+        padding: 5px 6px;
+      }
+
+      &:first-child {
+        text-align: left;
+        padding-left: 0;
+        border-right: 1px solid $shadow;
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+
+    thead {
+      padding: 0;
+      margin:0;
+
+      th {
+        @extend %table_big;
+
+        border-bottom: 1px solid $shadow;
+
+        span {
+          @extend %table_small;
+
+          display: block;
+        }
+      }
+    }
+
+    tbody {
+      padding: 0;
+      margin:0;
+
+      td {
+        @extend %table_regular;
+
+        vertical-align: middle;
+        padding: 10px 20px;
+
+        span {
+          @extend %table_small;
+        }
+
+        strong {
+          @extend %table_big;
+        }
+      }
+    }
+  }
+}
+
+.m-form__helpcontainer {
+  position: relative;
+
+  .m-form__legend {
+    display: inline-block;
+  }
+
+  .m-form__helpicon {
+    top: 0;
+  }
+
+  .m-form__helpinner {
+    right: -500px;
+  }
+}
+
+.m-form__helpcloser {
+  @include sprite('icon-close', (color: $black));
+  background-size: 20px auto;
+
+  position: absolute;
+  right: 15px;
+  top:15px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.m-form__subelements {
+  padding-left: 60px;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: calc(100% + 6px);
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    background-color: $dark-blue;
+    z-index: 9;
+  }
+
+  > * {
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 34px;
+      height: 1px;
+      position: absolute;
+      bottom: 20px;
+      left: -40px;
+      background-color: $dark-blue;
+      z-index: 9;
+    }
+
+    &:last-child {
+      &:before {
+        content: "";
+        display: block;
+        width: 34px;
+        height: 30px;
+        position: absolute;
+        background-color: $white;
+        bottom: -10px;
+        left: -40px;
+        z-index: 10;
+      }
+    }
+  }
+}
+
+.m-form__legend {
+  @extend %h4;
+
+  margin-bottom: 24px;
+  margin-top: 70px;
+  position: relative
+}
+
+.m-form__description {
+  @extend %label;
+
+  display: block;
+  margin-bottom: 24px;
+}
+
+.m-form__subline {
+  @extend %label;
+
+  margin-bottom: 24px;
+  margin-top: -20px;
+}
+
+.m-form__intervallcountcontainer {
+  position: relative;
+  margin-bottom: 32px;
+
+  > .m-form__element {
+    padding-bottom: 20px;
+  }
+}
+
+@import "text";
+@import "button";
+@import "select";
+@import "time";
+@import "group";
+@import "radios";

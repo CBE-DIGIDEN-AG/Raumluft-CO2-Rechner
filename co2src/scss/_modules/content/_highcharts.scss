@@ -1,0 +1,140 @@
+.highcharts-container {
+  overflow: initial !important;
+}
+
+.highcharts-plot-band-label {
+  position: absolute;
+  bottom: -40px !important;
+  top:auto !important;
+  color: $blue;
+}
+
+.highcharts-legend {
+  position: absolute;
+  right: 0;
+  top: 40px !important;
+}
+
+.m-highcharts__average {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.m-highcharts__cumulated {
+  width: 100%;
+  background-color: $light-grey-2;
+}
+
+.m-highcharts__cumulatedrow {
+  border-bottom: 2px solid $white;
+  display: flex;
+
+  span {
+    @extend %body;
+
+    display: flex;
+    padding: 10px 15px;
+    align-items: center;
+    width: calc(100% - 100px);
+    text-align: left;
+  }
+
+  strong {
+    @extend %h5;
+
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+
+    span {
+      @extend %caption;
+
+      padding: 0;
+    }
+  }
+
+  i {
+    @extend %caption;
+
+    margin-left: 10px;
+  }
+
+  span + span {
+    border-left: 2px solid $white;
+    display: block;
+    padding: 10px 25px;
+    width: 100px;
+  }
+}
+
+.m-highcharts__cumulated_roomtype {
+  border-bottom: 20px solid $white;
+}
+
+.m-highcharts__mittelwert_navigation {
+  margin-bottom: 20px;
+  text-align: right;
+
+  table {
+    @extend %table_big;
+
+    width: 100%;
+
+    thead {
+
+    }
+
+    th,
+    td {
+      padding: 4px 5px;
+      text-align: right;
+
+      &:last-of-type {
+        padding: 0;
+      }
+    }
+
+    .m-form__element {
+      width: 60px;
+      display: inline-block;
+      margin-left: 2px;
+    }
+
+    .m-form__select {
+      margin-bottom: 0;
+    }
+
+    select {
+      @extend %table_big;
+
+      border: solid 2px $dark-blue;
+      padding: 6px 11px;
+      background-color: $white;
+    }
+
+    td.invalid {
+      select {
+        border-color:$tomato;
+      }
+    }
+  }
+}
+
+.m-highcharts__mittelwert_add {
+  @extend %table_big;
+
+  margin-top: 12px;
+  color: $black;
+  text-align: right;
+  margin-right: 13px;
+  display: block;
+}
+
+.m-highcharts__mittelwert_remove {
+  @include sprite('icon-close', (color: $black));
+  background-size: 20px auto;
+  background-position: center center;
+
+  display: block;
+  width: 20px;
+  height: 10px;
+}

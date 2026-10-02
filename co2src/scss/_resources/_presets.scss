@@ -1,0 +1,279 @@
+@use 'sass:math';
+
+@function px2em ($font_size, $base_font_size: $base_font) {
+	@return (math.div($font_size , $base_font_size)) + rem;
+}
+
+@mixin clearfix {
+	zoom: 1;
+	&:before, &:after {
+		content: ".";
+		display: block;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin transition($speed, $on: all, $easing: ease) {
+  -webkit-transition: $on $speed $easing; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+  transition: $on $speed $easing; /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+
+@mixin shadow($color, $opacity) {
+	-webkit-box-shadow: 0px 5px 7px 0px rgba($color, $opacity);
+	-moz-box-shadow: 0px 5px 7px 0px rgba($color, $opacity);
+	box-shadow: 0px 5px 7px 0px rgba($color, $opacity);
+}
+
+@mixin textshadow($color, $opacity) {
+	-webkit-text-shadow: 0px 5px 7px rgba($color, $opacity);
+	-moz-text-shadow: 0px 5px 7px rgba($color, $opacity);
+	text-shadow: 0px 5px 7px rgba($color, $opacity);
+}
+
+@mixin shadow_mobile($color, $opacity) {
+	-webkit-box-shadow: 0px 5px 7px 0px rgba($color, $opacity);
+	-moz-box-shadow: 0px 5px 7px 0px rgba($color, $opacity);
+	box-shadow: 0px 5px 7px 0px rgba($color, $opacity);
+}
+
+@mixin text_decoration($color) {
+	display: block;
+
+	&:after {
+		content: ' ';
+		border-bottom: 2px solid $color;
+		width: 100%;
+		display: block;
+	}
+}
+
+@mixin noselect() {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin rotate($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+@mixin pgrotate($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+%ul {
+	padding: 0;
+	margin: 0;
+}
+
+%list_item {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+@mixin fullimage {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+%td {
+	padding: 12px 10px;
+	text-align: left;
+
+	a {
+		text-decoration: underline;
+	}
+
+	@include md() {
+		width: 100%;
+		display: block;
+		padding: px2em(0) px2em(10);
+
+		&:first-of-type {
+			padding-top: px2em(6);
+		}
+
+		&:last-of-type {
+			padding-bottom: px2em(6);
+		}
+	}
+}
+
+%listen_styled_item {
+	list-style-type: disc;
+	padding-left: 12px;
+}
+
+@mixin content_formater {
+	@extend %hyphenation;
+
+	> :last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	ul, ol, p {
+		margin-bottom: px2em(20);
+	}
+
+	p a {
+		color: $cyan;
+
+		&:hover {
+
+		}
+	}
+
+	li a {
+		color: $cyan;
+	}
+
+	code.hover-link{
+		@extend %body;
+	}
+
+	hr {
+		background-color: $light-grau;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	p + h2 {
+		margin-top: 69px;
+	}
+
+	p + h3 {
+		margin-top: 28px;
+	}
+
+	> ul, > ol {
+		@extend %ul;
+	}
+
+	> ul {
+		padding-left: 18px;
+
+		> li {
+			list-style-type: disc;
+			padding-left: 12px;
+		}
+	}
+
+	> ol {
+		padding-left: 35px;
+
+		> li {
+			list-style-type: decimal-leading-zero;
+			padding-left: 12px;
+		}
+	}
+
+	h3 {
+		line-height: 28px;
+		margin-bottom: 20px;
+		@include md{
+			margin-bottom: 24px;
+		}
+	}
+
+	iframe {
+		width: 100%;
+		height: px2em(400);
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 12px;
+
+		&.float-right {
+			@include md {
+				width: 50%;
+				margin-left: 15px;
+				padding: 0 15px;
+				margin-right: -15px;
+			}
+		}
+
+		&.float-left {
+			@include md {
+				width: 50%;
+				margin-right: 15px;
+				padding: 0 15px;
+				margin-left: -15px;
+			}
+		}
+
+		&[data-caption]:not([data-caption=""]) {
+			& + .m-pgimage__description {
+				margin-top: 0;
+				margin-bottom: 12px;
+			}
+		}
+	}
+
+	table {
+		margin-bottom: px2em(20);
+		width: 100%;
+
+		caption {
+			text-transform: uppercase;
+			text-align: left;
+		}
+
+		thead {
+			border: none;
+
+			th {
+				@extend %td;
+			}
+		}
+
+		tbody {
+			//border-bottom: 1px solid $blue2;
+		}
+
+		td {
+			@extend %td;
+		}
+
+		tr {
+		}
+
+		tr + tr {
+			margin-top: 20px;
+		}
+	}
+
+	table + table {
+		margin-top: 60px;
+	}
+}
+
+@mixin o-fit {
+	object-fit: cover;
+	min-height: 100%;
+	min-width: 100%;
+}

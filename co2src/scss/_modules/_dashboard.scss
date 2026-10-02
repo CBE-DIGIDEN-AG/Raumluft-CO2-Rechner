@@ -1,0 +1,45 @@
+.m-dashboard__buttons {
+  @extend .m-form__button;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    display: inline-block;
+    width: auto;
+  }
+
+  a + a {
+    margin-top: 24px;
+  }
+}
+
+.dashboardProjectFooterMenu {
+  @extend .sidebarProjectFooterMenu;
+
+  border-top:none;
+  justify-content: space-between;
+
+  &:before {
+    display: none;
+  }
+
+  li + li {
+    margin-top: 0;
+  }
+}
+
+.m-dashboard__projectresume {
+  @extend .m-form__button;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+
+  a {
+    margin-top: 20px;
+    width: auto;
+  }
+}

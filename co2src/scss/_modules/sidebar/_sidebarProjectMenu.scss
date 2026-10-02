@@ -1,0 +1,324 @@
+.sidebarProjectMenu {
+  //counter-reset: section;
+  padding-bottom: 12px;
+
+  li {
+    > a {
+      @extend %h2;
+
+      padding: 24px 40px;
+      cursor: pointer;
+      color: $black;
+      display: block;
+    }
+
+    position: relative;
+
+    &[data-is-active="true"] {
+      > a {
+        background-color: $light-grey;
+        position: relative;
+
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: -200%;
+          width: 3000px;
+          height: 100%;
+          background-color: $light-grey;
+          top: 0;
+          bottom:0;
+          z-index: -1;
+        }
+      }
+    }
+
+    &[data-is-valid="false"] {
+      &:after {
+        @include sprite('icon-unchecked', (color: $blue));
+
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left:10px;
+        top: 31px;
+      }
+    }
+
+    &[data-is-valid="true"] {
+      &:after {
+        @include sprite('icon-checkmarkfull', (color: $gruen));
+
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left:10px;
+        top: 31px;
+      }
+    }
+  }
+
+  li[data-level="1"] {
+    @extend %h5;
+
+    padding: 6px 0 6px 40px;
+
+    > a {
+      @extend %bodybold;
+
+      padding: 6px 30px 6px 10px;
+
+      span.chevron {
+        @include sprite('ic-chevron-right');
+
+        width: 24px;
+        height: 20px;
+        display: inline-block;
+        position: relative;
+        top: 4px;
+        margin-left: 4px;
+        background-size: 24px 24px;
+      }
+    }
+
+    &[data-is-active="true"] {
+      > a {
+        background-color: $dark-blue;
+        color: $white;
+
+        &:before {
+          display: none;
+        }
+
+        span.chevron {
+          @include sprite('ic-chevron-right', (color: $white));
+
+          background-size: 24px 24px;
+        }
+      }
+    }
+
+    &[data-is-valid="false"],
+    &[data-is-valid="true"] {
+      &:after {
+        top: 16px;
+      }
+    }
+
+    & + li[data-level="1"] {
+      margin-top: 10px;
+    }
+
+    &[data-submenu-isopen="false"] {
+      > ul {
+        display: none;
+      }
+    }
+
+    &[data-submenu-isopen="true"] {
+      > a {
+        span.chevron {
+          transform: rotate(180deg);
+          top: 6px;
+        }
+      }
+    }
+  }
+
+  li[data-level="2"] {
+    @extend %body;
+
+    padding: 0 0 0 20px;
+
+    > a {
+      @extend %body;
+
+      padding: 2px 20px 2px 5px;
+            
+      span.chevron {
+        @include sprite('ic-chevron-right');
+
+        width: 24px;
+        height: 20px;
+        display: inline-block;
+        position: relative;
+        top: 4px;
+        margin-left: 4px;
+        background-size: 24px 24px;
+      }
+    }
+
+    &[data-is-active="true"] {
+      > a {
+        background-color: $dark-blue;
+        color: $white;
+
+        &:before {
+          position: static;
+          left: auto;
+          display: inline;
+          background-color: transparent;
+          width: auto;
+          height: auto;
+        }
+
+        span.chevron {
+          @include sprite('ic-chevron-right', (color: $white));
+
+          background-size: 24px 24px;
+        }
+      }
+    }
+
+    &[data-is-valid="false"],
+    &[data-is-valid="true"] {
+      &:after {
+        top: 5px;
+        left: -3px;
+      }
+    }
+
+    &[data-submenu-isopen="false"] {
+      > ul {
+        display: none;
+      }
+    }
+
+    &[data-submenu-isopen="true"] {
+      > a {
+        span.chevron {
+          transform: rotate(180deg);
+          top: 6px;
+        }
+      }
+    }
+
+    & + li[data-level="2"] {
+      margin-top: 0;
+    }
+  }
+
+  li[data-level="3"] {
+    @extend %body;
+
+    padding: 0 0 0 22px;
+
+    > a {
+      @extend %body;
+
+      padding: 2px 20px 2px 10px;
+
+      &:before {
+        content: counter(section, disc);
+        margin-right: 6px;
+      }
+    }
+
+    &[data-is-active="true"] {
+      > a {
+        background-color: $dark-blue;
+        color: $white;
+
+        &:before {
+          position: static;
+          left: auto;
+          display: inline;
+          background-color: transparent;
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+
+    &[data-is-valid="false"],
+    &[data-is-valid="true"] {
+      &:after {
+        top: 5px;
+        left: -2px;
+      }
+    }
+
+    & + li[data-level="3"] {
+      margin-top: 0;
+    }
+  }
+
+  li[data-is-unsaved="true"] {
+    &:before {
+      @include sprite('icon-unsaved', (color: $white));
+
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $tomato;
+      right:20px;
+      top: 28px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 60%;
+      z-index: 200;
+    }
+
+    &[data-level="1"] {
+      &:before {
+        top: 12px;
+      }
+    }
+
+    &[data-level="2"] {
+      &:before {
+        top: 3px;
+      }
+    }
+
+    &[data-level="3"] {
+      &:before {
+        top: 3px;
+      }
+    }
+  }
+
+  li[data-hide-subtree="true1"] {
+    > a > span.chevron {
+      display: none;
+    }
+
+    > ul {
+      display: none;
+    }
+  }
+
+  li[data-path="results"] {
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  li[data-path="dayprofile"] {
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.sidebarMenuSubline {
+  @extend %label;
+
+  margin-top: 2px;
+}

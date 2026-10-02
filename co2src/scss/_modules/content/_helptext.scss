@@ -1,0 +1,69 @@
+.m-helptext {
+  table {
+    padding: 0;
+    margin:0;
+
+    tr {
+      padding: 0;
+      margin:0;
+    }
+
+    th, td {
+      text-align: center;
+
+      > p {
+        padding: 5px 6px;
+      }
+
+      &:first-child {
+        text-align: left;
+        padding-left: 0;
+        border-right: 1px solid $shadow;
+      }
+    }
+
+    thead {
+      padding: 0;
+      margin:0;
+
+      th {
+        @extend %table_big;
+
+        border-bottom: 1px solid $shadow;
+
+        span {
+          @extend %table_small;
+
+          display: block;
+        }
+      }
+    }
+
+    tbody {
+      padding: 0;
+      margin:0;
+
+      td {
+        @extend %table_regular;
+
+        span {
+          @extend %table_small;
+        }
+      }
+    }
+  }
+}
+
+.m-helptext__legend {
+  @extend %table_big;
+
+  display: block;
+  margin-bottom: 12px;
+}
+
+.m-helptext__description {
+  @extend %table_small;
+
+  display: block;
+  margin-top: 12px;
+}

@@ -1,0 +1,69 @@
+.m-form__radios {
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    position: absolute; // made this absolute so the scroll to error go to the propper place
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+  }
+
+  label {
+    @extend %bodybold;
+
+    cursor: pointer;
+    display: block;
+
+    padding-left: 24px;
+
+    position: relative;
+
+    span > span {
+      @extend %caption;
+
+      display: block;
+
+      strong {
+        @extend %captionbold;
+      }
+    }
+  }
+
+  input + span {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 6px;
+      left: 0;
+      border: 1px solid $dark-blue;
+      border-radius: 50%;
+    }
+  }
+
+  input.error:checked + span,
+  input:checked + span {
+    color: $text-grey;
+
+    &::before {
+      border-color: $dark-blue;
+      background-color: $button-hover;
+    }
+  }
+
+  input.error + label {
+    color: $tomato;
+
+    &::before {
+      border-color: $tomato;
+    }
+  }
+}

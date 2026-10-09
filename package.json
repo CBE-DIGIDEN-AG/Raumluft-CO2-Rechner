@@ -67,6 +67,6 @@
     "react-error-boundary": "^5.0.0",
     "sass-resources-loader": "^2.2.5",
     "simplebar": "^6.2.5",
-    "svg-spritemap-webpack-plugin": "^4.5.0"
+    "svg-spritemap-webpack-plugin": "^5.1.4"
   }
 }
